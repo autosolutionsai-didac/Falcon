@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "falcon"
+version = "0.1.0"
+description = "AI-powered divorce accounting forensics tool using Pydantic AI framework and OpenAI o3 model via OpenRouter"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Falcon Team", email = "admin@falcon.ai"},
+]
+dependencies = [
+    "pydantic-ai-slim[openai]>=0.0.15",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.15",
+    "httpx>=0.28.0",
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.15.0",
+    "asyncpg>=0.30.0",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.0.0",
+    "redis>=5.0.0",
+    "celery>=5.4.0",
+    "authlib>=1.3.0",
+    "itsdangerous>=2.2.0",
+    "email-validator>=2.2.0",
+    "jinja2>=3.1.5",
+    "aiofiles>=24.1.0",
+    "python-magic>=0.4.28",
+    "pypdf>=5.1.0",
+    "pandas>=2.2.0",
+    "openpyxl>=3.1.5",
+    "cryptography>=44.0.0",
+    "logfire>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.25.0",
+    "pytest-cov>=6.0.0",
+    "black>=24.10.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+    "pre-commit>=4.0.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
